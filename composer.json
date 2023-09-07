@@ -1,0 +1,21 @@
+{
+	"require": {
+"php": ">=5.6.0"
+	},
+"authors": [
+{
+"name": "Your Name",
+"email": "youremail@domain.com"
+}
+	],
+"config": {
+"vendor-dir": "bin",
+"bin-dir": "bin"
+	},
+"repositories": [
+{
+"type": "path",
+"url": "./"
+}
+	]
+}
